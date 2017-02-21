@@ -51,17 +51,17 @@ class SerialReceiver(threading.Thread):
                 output += ['error type: {0}'.format(type(err))]
                 output += ['{0}'.format(err)]
                 output  = '\n'.join(output)
-                print output
+                print(output)
                 return
             else:
-                print 'rxByte: {0:02x}'.format(ord(rxByte))
+                print('rxByte: {0:02x}'.format(ord(rxByte)))
 
 #============================ CLI handlers ====================================
 
 def quit_clicb():
     global serialHandler
     
-    print "quitting!"
+    print("quitting!")
     
     serialHandler.close()
 
@@ -74,10 +74,10 @@ def connect_clicb(params):
     except:
         baudrate = BAUDRATE
     
-    print 'opening {0}@{1}baud'.format(portname,baudrate)
+    print('opening {0}@{1}baud'.format(portname,baudrate))
     
     if serialHandler!=None:
-        print 'ERROR: already connected. Restart the application to connect to a different port.'
+        print('ERROR: already connected. Restart the application to connect to a different port.')
         return
     
     try:
@@ -97,10 +97,10 @@ def connect_clicb(params):
         output += ['error type: {0}'.format(type(err))]
         output += ['{0}'.format(err)]
         output  = '\n'.join(output)
-        print output
+        print(output)
         return
     else:
-        print 'connected successfully'
+        print('connected successfully')
 
 def baudrate_clicb(params):
     global serialHandler
@@ -108,7 +108,7 @@ def baudrate_clicb(params):
     baudrate = params[0]
     
     if serialHandler==None:
-        print 'ERROR: not connected.'
+        print('ERROR: not connected.')
         return
     
     serialHandler.baudrate = baudrate
@@ -119,7 +119,7 @@ def tx_clicb(params):
     bytesToTx = params[0]
     
     if serialHandler==None:
-        print 'ERROR: not connected.'
+        print('ERROR: not connected.')
         return
     
     # convert from hex string to binary
@@ -129,7 +129,7 @@ def tx_clicb(params):
         output  = []
         output += ['ERROR: invalid hexadecimal string "{0}"'.format(bytesToTx)]
         output  = '\n'.join(output)
-        print output
+        print(output)
         return
     
     # transmit over serial port
@@ -140,7 +140,7 @@ def tx_clicb(params):
         output += ['ERROR: could not write to serial port']
         output += ['error type: {0}'.format(type(err))]
         output += ['{0}'.format(err)]
-        print output
+        print(output)
         return
 
 #============================ main ============================================
@@ -174,7 +174,7 @@ def main():
     cli.start()
     
     # print SmartMesh SDK version
-    print 'SmartMesh SDK {0}'.format('.'.join([str(i) for i in sdk_version.VERSION]))
+    print('SmartMesh SDK {0}'.format('.'.join([str(i) for i in sdk_version.VERSION])))
 
 if __name__=='__main__':
     main()

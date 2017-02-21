@@ -89,9 +89,9 @@ class NotifThread(object):
     #======================== private =========================================
     
     def _notifHealthReportCb(self, notifName, notifParams):
-        print notifName
-        print notifParams
-        print "TODO _notifHealthReportCb"
+        print(notifName)
+        print(notifParams)
+        print("TODO _notifHealthReportCb")
 
 class SnapshotThread(threading.Thread):
     
@@ -165,7 +165,7 @@ class SnapshotThread(threading.Thread):
     
     def printLastResults(self):
         with self.dataLock:
-            print self.lastResults
+            print(self.lastResults)
     
     def close(self):
         
@@ -218,7 +218,7 @@ class SnapshotThread(threading.Thread):
                         else:
                             currentPathId  = res.pathId
                 
-                print "running test at {0}".format(self._now())
+                print("running test at {0}".format(self._now()))
                 
                 # run NetworkHealthAnalyzer
                 results = self.networkHealthAnalyzer.analyze(dataForAnalyzer)
@@ -326,11 +326,11 @@ def period_clicb(params):
     try:
         period = int(params[0])
     except ValueError:
-        print 'you should pass an integer, "{0}" is not'.format(params[0])
+        print('you should pass an integer, "{0}" is not'.format(params[0]))
         return
     
     if not snapshotThread:
-        print "connect first before setting the period"
+        print("connect first before setting the period")
     else:
         snapshotThread.setSnapshotPeriod(period)
 
@@ -347,7 +347,7 @@ def quit_clicb():
         snapshotThread.close()
     
     time.sleep(.3)
-    print "bye bye."
+    print("bye bye.")
 
 #============================ main ============================================
 
@@ -389,7 +389,7 @@ def main():
     )
     
     # print SmartMesh SDK version
-    print 'SmartMesh SDK {0}'.format('.'.join([str(i) for i in sdk_version.VERSION]))
+    print('SmartMesh SDK {0}'.format('.'.join([str(i) for i in sdk_version.VERSION])))
     cli.start()
 
 if __name__=='__main__':

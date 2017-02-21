@@ -17,21 +17,21 @@ from SmartMeshSDK.utils import SmsdkInstallVerifier
 #============================ main ============================================
 
 def verifyOneComponent(name):
-    print "\nTesting installation of "+name+"..."
+    print("\nTesting installation of "+name+"...")
     (goodToGo,reason) = SmsdkInstallVerifier.verifyComponents([name])
     if goodToGo:
-        print 'PASS!'
-        print reason
+        print('PASS!')
+        print(reason)
     else:
-        print 'FAIL!'
+        print('FAIL!')
         if name==SmsdkInstallVerifier.PYWIN32:
-            print "Note: {0} is only required to run the MuxConfig application.".format(SmsdkInstallVerifier.PYWIN32)
-        print reason
+            print("Note: {0} is only required to run the MuxConfig application.".format(SmsdkInstallVerifier.PYWIN32))
+        print(reason)
     return goodToGo
 
 def main():
     version_str = '.'.join([str(v) for v in sdk_version.VERSION])
-    print "Installation test script - Dust Networks SmartMeshSDK v{0}".format(version_str)
+    print("Installation test script - Dust Networks SmartMeshSDK v{0}".format(version_str))
 
     wait_for_user = True
     components = [SmsdkInstallVerifier.PYTHON,

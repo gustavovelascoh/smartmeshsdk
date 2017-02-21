@@ -29,7 +29,7 @@ class Printer(object):
         self._init = True
         self.f = open('statistics.txt','w')
     def printline(self,line):
-        print line
+        print(line)
         self.f.write(line)
     def __def__(self):
         self.f.close()
@@ -198,7 +198,7 @@ def main():
     
     try:
     
-        print 'logAnalysis - Dust Networks (c) 2014'
+        print('logAnalysis - Dust Networks (c) 2014')
         
         # initialize stats
         stats = [s() for s in Stats.__subclasses__()]
@@ -208,7 +208,7 @@ def main():
             for line in f:
                 m = re.search('([0-9\- :]*).([0-9]{3}),([a-zA_Z _]*),([0-9a-f\-]*),([0-9.]*)',line)
                 if not m:
-                    print 'WARNING: following line not parsed: {0}'.format(line)
+                    print('WARNING: following line not parsed: {0}'.format(line))
                     assert(0)
                     continue
                 
@@ -269,10 +269,10 @@ def main():
             Printer().printline(stat.formatstat())
         
     except Exception as err:
-        print "FATAL: ({0}) {1}".format(type(err),err)
-        print traceback.print_exc()
+        print("FATAL: ({0}) {1}".format(type(err),err))
+        print(traceback.print_exc())
     else:
-        print "\n\nScript ended normally"
+        print("\n\nScript ended normally")
     
     raw_input("\nPress enter to close.")
 

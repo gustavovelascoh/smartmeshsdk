@@ -230,7 +230,7 @@ class exampleApp(object):
             returnVal = random.uniform(-40,85)
             self.lastUpdateTemperature = now
         
-        print "_getTemperatureCb() returns  {0}".format(returnVal)
+        print("_getTemperatureCb() returns  {0}".format(returnVal))
         
         return returnVal
     
@@ -244,7 +244,7 @@ class exampleApp(object):
             returnVal =  random.choice(['solar','battery'])
             self.lastUpdateEnergySource = now
         
-        print "_getEnergySourceCb() returns  {0}".format(returnVal)
+        print("_getEnergySourceCb() returns  {0}".format(returnVal))
         
         return returnVal
     
@@ -258,12 +258,12 @@ class exampleApp(object):
             returnVal =  random.uniform(0,1800)
             self.lastUpdateAdcValue = now
         
-        print "_getAdcValueCb() returns     {0}".format(returnVal)
+        print("_getAdcValueCb() returns     {0}".format(returnVal))
         
         return returnVal
         
     def _closeCb(self):
-        print ' _closeCb called'
+        print(' _closeCb called')
         self.frame.close()
 
 if __name__ == '__main__':

@@ -27,7 +27,7 @@ class AutoHideScrollbar(Tkinter.Scrollbar):
             Tkinter.Scrollbar.set(self, lo, hi)
         except ValueError as err:
             # can happen when closing the application
-            print err
+            print(err)
             pass
 
 class dustFrame(Tkinter.Frame):
@@ -338,7 +338,7 @@ class exampleApp(object):
         self.window.mainloop()
     
     def _closeCb(self):
-        print " _closeCb called"
+        print(" _closeCb called")
 
 if __name__ == '__main__':
     import threading

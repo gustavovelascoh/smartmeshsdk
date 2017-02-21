@@ -498,13 +498,13 @@ class exampleApp(object):
         self.window.mainloop()
     
     def _closeCb(self):
-        print " _closeCb called"
+        print(" _closeCb called")
     def _selectedCb(self,param):
-        print " _selectedCb called with param="+str(param)
+        print(" _selectedCb called with param="+str(param))
     def _responseCb(self):
-        print " _responseCb called"
+        print(" _responseCb called")
     def _responseErrorCb(self,param):
-        print " _responseErrorCb called with param="+str(param)
+        print(" _responseErrorCb called with param="+str(param))
 
 if __name__ == '__main__':
     import threading

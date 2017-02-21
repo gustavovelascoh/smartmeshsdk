@@ -123,7 +123,7 @@ class exampleApp(object):
         self.window.mainloop()
     
     def _directionCb(self,forward):
-        print '_directionCb clicked, forward={0}'.format(forward)
+        print('_directionCb clicked, forward={0}'.format(forward))
     
     def _closeCb(self):
         pass

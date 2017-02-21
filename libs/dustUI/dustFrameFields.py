@@ -171,7 +171,7 @@ class dustFrameFields(dustFrame.dustFrame):
                 c['fieldOptions']     += temp_fieldOptions
             
             except CommandError as err:
-                print str(err)
+                print(str(err))
                 return
         
         # add values

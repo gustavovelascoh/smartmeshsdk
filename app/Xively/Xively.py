@@ -19,8 +19,8 @@ from SmartMeshSDK.utils import SmsdkInstallVerifier
     ]
 )
 if not goodToGo:
-    print "Your installation does not allow this application to run:\n"
-    print reason
+    print("Your installation does not allow this application to run:\n")
+    print(reason)
     raw_input("Press any button to exit")
     sys.exit(1)
 
@@ -126,7 +126,7 @@ class xivelyConnectorThread(threading.Thread):
         try:
             self.queue.put_nowait((mac,datastream,value))
         except Queue.Full:
-            print "Queue is full"
+            print("Queue is full")
     
     def getProductId(self):
         returnVal = None
@@ -198,7 +198,7 @@ class xivelyConnectorThread(threading.Thread):
                 output      += ['']
                 output       = '\n'.join(output)
                 log.error(output)
-                print output
+                print(output)
                 
             else:
                 AppData().incrementMoteCounter(mac,COL_NUMDATAPUBOK)
@@ -442,7 +442,7 @@ class notifClient(object):
                         output   += ['']
                         output    = '\n'.join(output)
                         log.error(output)
-                        print output
+                        print(output)
     
     #===== notifications from Xively
     

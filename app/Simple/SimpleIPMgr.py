@@ -22,9 +22,9 @@ DEFAULT_MUXPORT = 9900
 
 #============================ main ============================================
 
-print 'Simple Application which interacts with the IP manager - (c) Dust Networks'
+print('Simple Application which interacts with the IP manager - (c) Dust Networks')
 
-print '\n\n================== Step 1. Connecting to the manager =============='
+print('\n\n================== Step 1. Connecting to the manager ==============')
 
 connect = raw_input('\nDo you want to connect to a manager over SerialMux? [y/n] ')
 
@@ -42,37 +42,37 @@ if muxPort:
 else:
     muxPort = DEFAULT_MUXPORT
 
-print '\n=====\nCreating connector'
+print('\n=====\nCreating connector')
 connector = IpMgrConnectorMux.IpMgrConnectorMux()
-print 'done.'
+print('done.')
 
-print '\n=====\nConnecting to IP manager'
+print('\n=====\nConnecting to IP manager')
 try:
     connector.connect({
                         'host': muxHost,
                         'port': muxPort,
                      })
 except ConnectionError as err:
-    print err
+    print(err)
     raw_input('\nScript ended. Press Enter to exit.')
     sys.exit(1)
-print 'done.'
+print('done.')
 
-print '\n\n================== Step 2. Getting information from the network ===='
+print('\n\n================== Step 2. Getting information from the network ====')
 
-print '\n=====\nRetrieve the network info'
+print('\n=====\nRetrieve the network info')
 try:
-    print connector.dn_getNetworkInfo()
+    print(connector.dn_getNetworkInfo())
 except (ConnectionError,CommandTimeoutError) as err:
-    print "Could not send data, err={0}".format(err)
+    print("Could not send data, err={0}".format(err))
 
-print '\n\n================== Step 3. Disconnecting from the device =========='
+print('\n\n================== Step 3. Disconnecting from the device ==========')
 
-print '\n=====\nDisconnecting from IP manager'
+print('\n=====\nDisconnecting from IP manager')
 try:
     connector.disconnect()
 except (ConnectionError,CommandTimeoutError) as err:
-    print err
-print 'done.'
+    print(err)
+print('done.')
 
 raw_input('\nScript ended. Press Enter to exit.')

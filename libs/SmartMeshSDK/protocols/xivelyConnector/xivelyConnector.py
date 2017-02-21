@@ -271,7 +271,7 @@ class xivelySubscriber(threading.Thread):
             output += ['\ncall stack:\n']
             output += [traceback.format_exc()]
             output  = '\n'.join(output)
-            print output # critical error
+            print(output) # critical error
             log.critical(output)
             raise
     

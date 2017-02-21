@@ -18,8 +18,8 @@ from SmartMeshSDK.utils import SmsdkInstallVerifier
     ]
 )
 if not goodToGo:
-    print "Your installation does not allow this application to run:\n"
-    print reason
+    print("Your installation does not allow this application to run:\n")
+    print(reason)
     raw_input("Press any button to exit")
     sys.exit(1)
 
@@ -85,7 +85,7 @@ class TimelapseAnalyzer(object):
                         }
                     ]
                 else:
-                    print 'WARNING: could not match "{0}"'.format(line)
+                    print('WARNING: could not match "{0}"'.format(line))
     
     def _get_motes(self):
         '''
@@ -179,7 +179,7 @@ class TimelapseAnalyzer(object):
                    y    = int(m.group(3))
                    self.pos[mac] = (x,y)
                 else:
-                   print 'WARNING: could not match "{0}"'.format(line)
+                   print('WARNING: could not match "{0}"'.format(line))
         
         # links
         self.links = []
@@ -318,7 +318,7 @@ def main():
         output += ["=== traceback ==="]
         output += [traceback.format_exc()]
         output  = '\n'.join(output)
-        print output
+        print(output)
         raw_input('Press Enter to close.')
     else:
         raw_input('Script ended normally.\nPress Enter to close.')

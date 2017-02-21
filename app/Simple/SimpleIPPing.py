@@ -34,20 +34,20 @@ def notifCallback(notifName, notifParams):
     
     if notifName!=IpMgrSubscribe.IpMgrSubscribe.EVENTPINGRESPONSE:
         return
-    print 'response from {0} delay={1}ms voltage={2}mV temp={3}C'.format(
+    print('response from {0} delay={1}ms voltage={2}mV temp={3}C'.format(
         FormatUtils.formatMacString(notifParams.macAddress),
         notifParams.delay,
         notifParams.voltage,
         notifParams.temperature,
-    )
+    ))
     
     responseEvent.set()
 
 try:
-    print 'Simple Application to ping a mote - (c) Dust Networks'
-    print 'SmartMesh SDK {0}\n'.format('.'.join([str(b) for b in sdk_version.VERSION]))
+    print('Simple Application to ping a mote - (c) Dust Networks')
+    print('SmartMesh SDK {0}\n'.format('.'.join([str(b) for b in sdk_version.VERSION])))
 
-    print '================== Step 1. Connect to the manager'
+    print('================== Step 1. Connect to the manager')
     
     # ask user for serial port of manager
     serialPort = raw_input('\nEnter the SmartMesh IP Manager\'s serial port (leave blank for {0}): '.format(DEFAULT_SERIALPORT))
@@ -86,11 +86,11 @@ try:
             currentMac = res.macAddress
     
     # print list of operational motes
-    print '\nmoteId MAC'
+    print('\nmoteId MAC')
     for (id,mac) in macs.items():
-        print '{0:<6} {1}'.format(id,FormatUtils.formatMacString(mac))
+        print('{0:<6} {1}'.format(id,FormatUtils.formatMacString(mac)))
     
-    print '\n================ Step 2. Ping a mote'
+    print('\n================ Step 2. Ping a mote')
     
     goOn = True
     while goOn:
@@ -105,12 +105,12 @@ try:
         
         connector.dn_pingMote(macs[moteId])
         
-        print 'ping sent to {0}'.format(FormatUtils.formatMacString(macs[moteId]))
+        print('ping sent to {0}'.format(FormatUtils.formatMacString(macs[moteId])))
         
         responseEvent.wait()
         responseEvent.clear()
     
-    print '\n\n============== Step 3. Disconnect from the device'
+    print('\n\n============== Step 3. Disconnect from the device')
     
     connector.disconnect()
 
@@ -120,9 +120,9 @@ except Exception as err:
     output += ['CRASH']
     output += [str(err)]
     output += [traceback.format_exc()]
-    print '\n'.join(output)
+    print('\n'.join(output))
 else:
-    print 'Script ended normally'
+    print('Script ended normally')
 finally:
     try:
         connector.disconnect()

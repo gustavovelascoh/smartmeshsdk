@@ -73,8 +73,8 @@ class OTAPMonitor:
             missing_blocks.append(lost_block)
             index = index + 2
 
-        print 'Err:', rc, 'OTAP:', otap_rc, 'MIC:', mic, 'Missing:'
-        print ' '.join([str(b) for b in missing_blocks])
+        print('Err:', rc, 'OTAP:', otap_rc, 'MIC:', mic, 'Missing:')
+        print(' '.join([str(b) for b in missing_blocks]))
         # TODO: filter out multiple responses
 
     def data_callback(self, data):

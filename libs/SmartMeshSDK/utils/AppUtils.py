@@ -104,7 +104,7 @@ def configureLogging():
             }
         )
     else:
-        print "WARNING: no log configuration file could be found."
+        print("WARNING: no log configuration file could be found.")
 
 #============================ formatting ======================================
 

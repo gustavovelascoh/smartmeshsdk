@@ -19,8 +19,8 @@ from SmartMeshSDK.utils import SmsdkInstallVerifier
     ]
 )
 if not goodToGo:
-    print "Your installation does not allow this application to run:\n"
-    print reason
+    print("Your installation does not allow this application to run:\n")
+    print(reason)
     raw_input("Press any button to exit")
     sys.exit(1)
 
@@ -68,16 +68,16 @@ def handle_oap_data(mac,notif):
     
     if isinstance(notif,OAPNotif.OAPTempSample):
         
-        print 't={TEMP:.2f}C at {MAC}'.format(
+        print('t={TEMP:.2f}C at {MAC}'.format(
             TEMP = float(notif.samples[0])/100,
             MAC  = FormatUtils.formatMacString(mac),
-        )
+        ))
 
 #============================ main ============================================
 
 # print banner
-print 'TempLogger - (c) Dust Networks'
-print 'SmartMesh SDK {0}'.format('.'.join([str(b) for b in sdk_version.VERSION]))
+print('TempLogger - (c) Dust Networks')
+print('SmartMesh SDK {0}'.format('.'.join([str(b) for b in sdk_version.VERSION])))
 
 # set up the OAP dispatcher (which parses OAP packets)
 oapdispatcher = OAPDispatcher.OAPDispatcher()
@@ -95,15 +95,15 @@ try:
         'port': serialport,
     })
 except Exception as err:
-    print 'failed to connect to manager at {0}, error ({1})\n{2}'.format(
+    print('failed to connect to manager at {0}, error ({1})\n{2}'.format(
         serialport,
         type(err),
         err
-    )
+    ))
     raw_input('Aborting. Press Enter to close.')
     sys.exit(1)
 else:
-    print 'Connected to {0}.\n'.format(serialport)
+    print('Connected to {0}.\n'.format(serialport))
 
 # subscribe to data notifications 
 subscriber = IpMgrSubscribe.IpMgrSubscribe(connector)

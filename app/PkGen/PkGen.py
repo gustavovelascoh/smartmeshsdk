@@ -19,8 +19,8 @@ from SmartMeshSDK.utils import SmsdkInstallVerifier
     ]
 )
 if not goodToGo:
-    print "Your installation does not allow this application to run:\n"
-    print reason
+    print("Your installation does not allow this application to run:\n")
+    print(reason)
     raw_input("Press any button to exit")
     sys.exit(1)
 
@@ -192,7 +192,7 @@ class notifClient(object):
         else:
             output = "apiDef of type {0} unexpected".format(type(self.apiDef))
             log.critical(output)
-            print output
+            print(output)
             raise SystemError(output)
     
     #======================== public ==========================================
@@ -265,7 +265,7 @@ class notifClient(object):
         else:
             output = "apiDef of type {0} unexpected".format(type(self.apiDef))
             log.critical(output)
-            print output
+            print(output)
             raise SystemError(output)
         
         # record current time
@@ -351,12 +351,12 @@ class notifClient(object):
             else:
                 output = "apiDef of type {0} unexpected".format(type(self.apiDef))
                 log.critical(output)
-                print output
+                print(output)
                 raise SystemError(output)
         
         except Exception as err:
             output = traceback.format_exc()
-            print output
+            print(output)
             log.critical(output)
         
         finally:
@@ -376,7 +376,7 @@ class notifClient(object):
         else:
             output = "apiDef of type {0} unexpected".format(type(self.apiDef))
             log.critical(output)
-            print output
+            print(output)
             raise SystemError(output)
     
     def _handle_oap_notif(self,mac,notif):
@@ -588,7 +588,7 @@ class PkGenGui(object):
                                         cb=None,                                    # callback
                                       )
         except APIError as err:
-            print "[WARNING] {0}".format(err)
+            print("[WARNING] {0}".format(err))
         else:
             # update status
             self.statusFrame.write(
@@ -652,7 +652,7 @@ class PkGenGui(object):
         else:
             output = "apiDef of type {0} unexpected".format(type(self.apiDef))
             log.critical(output)
-            print output
+            print(output)
             raise SystemError(output)
         
         return returnVal
@@ -749,7 +749,7 @@ class PkGenGui(object):
         else:
             output = "apiDef of type {0} unexpected".format(type(self.apiDef))
             log.critical(output)
-            print output
+            print(output)
             raise SystemError(output)
 
 #============================ main ============================================

@@ -90,41 +90,41 @@ def printOperationalMotes():
         output += ['{0}: {1}'.format(i,FormatUtils.formatMacString(m))]
     output  = '\n'.join(output)
     
-    print output
+    print(output)
 
 def selectOperationalMote(moteNum):
     
     if moteNum>len(AppData().get('operationalmotes')):
-        print 'Cannot select mote {0}, there are only {1} motes'.format(
+        print('Cannot select mote {0}, there are only {1} motes'.format(
             moteNum,
             len(AppData().get('operationalmotes')),
-        )
+        ))
         return
     
     AppData().set('currentmote',moteNum)
     
-    print '\nCurrently using mote {0} ({1}).'.format(
+    print('\nCurrently using mote {0} ({1}).'.format(
         AppData().get('currentmote'),
         FormatUtils.formatMacString(AppData().get('operationalmotes')[AppData().get('currentmote')])
-    )
+    ))
 
 def togglePrintNotifs():
     
     if AppData().get('printNotifs')==False:
         AppData().set('printNotifs',True)
-        print "notifications are ON."
+        print("notifications are ON.")
     else:
         AppData().set('printNotifs',False)
-        print "notifications are OFF."
+        print("notifications are OFF.")
 
 def toggleLogNotifs():
     
     if AppData().get('logNotifs')==False:
         AppData().set('logNotifs',True)
-        print "logging to logfile is ON."
+        print("logging to logfile is ON.")
     else:
         AppData().set('logNotifs',False)
-        print "logging to logfile is OFF."
+        print("logging to logfile is OFF.")
 
 #============================ classes =========================================
 
@@ -216,7 +216,7 @@ class Manager(object):
         )
         
         if AppData().get('printNotifs'):
-            print output
+            print(output)
         if AppData().get('logNotifs'):
             self.log_file.write('{0}\n'.format(output))
 
@@ -260,7 +260,7 @@ def connect_clicb(params):
     except KeyError:
         pass
     else:
-        print 'already connected.'
+        print('already connected.')
         return
     
     # create a connector
@@ -272,10 +272,10 @@ def connect_clicb(params):
             'port': port,
         })
     except ConnectionError as err:
-        print 'Could not connect to {0}: {1}'.format(
+        print('Could not connect to {0}: {1}'.format(
             port,
             err,
-        )
+        ))
         AppData().delete('connector')
         return
     
@@ -300,8 +300,8 @@ def oapinfo_response(mac, oap_resp):
     output += ["GET /info response from {0}:".format(FormatUtils.formatMacString(mac))]
     output  = '\n'.join(output)
     
-    print output
-    print (mac, oap_resp)
+    print(output)
+    print((mac, oap_resp))
 
 def info_clicb(params):
     
@@ -309,10 +309,10 @@ def info_clicb(params):
     moteId    = int(params[0])
     
     if moteId>len(AppData().get('operationalmotes')):
-        print 'moteId {0} impossible, there are only {1} motes'.format(
+        print('moteId {0} impossible, there are only {1} motes'.format(
             moteId,
             len(AppData().get('operationalmotes')),
-        )
+        ))
         return
     
     AppData().get('oap_clients')[AppData().get('operationalmotes')[moteId]].send(
@@ -333,10 +333,10 @@ def led_clicb(params):
     ledState  = params[1]
     
     if moteId>len(AppData().get('operationalmotes')):
-        print 'moteId {0} impossible, there are only {1} motes'.format(
+        print('moteId {0} impossible, there are only {1} motes'.format(
             moteId,
             len(AppData().get('operationalmotes')),
-        )
+        ))
         return
     
     if ledState=="0":
@@ -386,10 +386,10 @@ def temp_clicb(params):
     pktPeriod   = int(params[2])
     
     if moteId>len(AppData().get('operationalmotes')):
-        print 'moteId {0} impossible, there are only {1} motes'.format(
+        print('moteId {0} impossible, there are only {1} motes'.format(
             moteId,
             len(AppData().get('operationalmotes')),
-        )
+        ))
         return
     
     # send OAP command ... single or all broadcast
@@ -442,10 +442,10 @@ def pkgen_clicb(params):
     pktstartPID = 0
     
     if moteId>len(AppData().get('operationalmotes')):
-        print 'moteId {0} impossible, there are only {1} motes'.format(
+        print('moteId {0} impossible, there are only {1} motes'.format(
             moteId,
             len(AppData().get('operationalmotes')),
-        )
+        ))
         return
     
     # send OAP command ... single mote, or all unicast, or all broadcast
@@ -462,7 +462,7 @@ def pkgen_clicb(params):
             ],
         )
     elif params[0] == "allu":
-        print " Sending Unicast command to all motes\n"
+        print(" Sending Unicast command to all motes\n")
         for mote_mac in AppData().get('operationalmotes'):
             AppData().get('oap_clients')[mote_mac].send(
                 cmd_type   = OAPMessage.CmdType.PUT,
@@ -477,7 +477,7 @@ def pkgen_clicb(params):
             )
             time.sleep(.25)
     elif params[0] == "allb":
-        print " Sending Broadcast command to all motes\n"
+        print(" Sending Broadcast command to all motes\n")
         # build OAP message
         oap_msg = OAPMessage.build_oap(
             seq          = 0,
@@ -506,7 +506,7 @@ def pkgen_clicb(params):
                 data         = oap_msg,
             )
     else:
-        print (' unknown paramater ... {0}'.format(params[0]))
+        print((' unknown paramater ... {0}'.format(params[0])))
 
 def analog_clicb(params):
     
@@ -517,10 +517,10 @@ def analog_clicb(params):
     rate           = int(params[3])
     
     if moteId>len(AppData().get('operationalmotes')):
-        print 'moteId {0} impossible, there are only {1} motes'.format(
+        print('moteId {0} impossible, there are only {1} motes'.format(
             moteId,
             len(AppData().get('operationalmotes')),
-        )
+        ))
         return
     
     AppData().get('oap_clients')[AppData().get('operationalmotes')[moteId]].send(
@@ -540,7 +540,7 @@ def quit_clicb():
         AppData().get('manager').disconnect()
     
     time.sleep(.3)
-    print "bye bye."
+    print("bye bye.")
 
 #============================ main ============================================
 
@@ -630,7 +630,7 @@ def main():
     )
         
     # print SmartMesh SDK version
-    print 'SmartMesh SDK {0}'.format('.'.join([str(i) for i in sdk_version.VERSION]))
+    print('SmartMesh SDK {0}'.format('.'.join([str(i) for i in sdk_version.VERSION])))
     cli.start()
 
 if __name__=='__main__':

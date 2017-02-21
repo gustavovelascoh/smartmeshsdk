@@ -156,17 +156,17 @@ class exampleApp(object):
         output += ['entered on top:']
         output += [textEntered]
         output  = '\n'.join(output)
-        print output
+        print(output)
     
     def _bottomEnteredCb(self,textEntered):
         output  = []
         output += ['entered on bottom:']
         output += [textEntered]
         output  = '\n'.join(output)
-        print output
+        print(output)
     
     def _closeCb(self):
-        print " _closeCb called"
+        print(" _closeCb called")
 
 if __name__ == '__main__':
     import threading

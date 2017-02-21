@@ -72,7 +72,7 @@ class DustCli(threading.Thread):
                 self._handleUptime)
         
     def run(self):
-        print '{0} - (c) Dust Networks\n'.format(self.appName)
+        print('{0} - (c) Dust Networks\n'.format(self.appName))
         
         self.startTime = time.time()
         
@@ -91,7 +91,7 @@ class DustCli(threading.Thread):
             if len(params)==2 and params[1]=='?':
                 if not self._printUsageFromName(params[0]):
                     if not self._printUsageFromAlias(params[0]):
-                        print ' unknown command or alias \''+params[0]+'\''
+                        print(' unknown command or alias \''+params[0]+'\'')
                 continue
 
             # find this command
@@ -114,7 +114,7 @@ class DustCli(threading.Thread):
                     if not self._printUsageFromName(params[0]):
                         self._printUsageFromAlias(params[0])
             else:
-                print ' unknown command or alias \''+params[0]+'\''
+                print(' unknown command or alias \''+params[0]+'\'')
     
     #======================== public ==========================================
     
@@ -167,7 +167,7 @@ class DustCli(threading.Thread):
         self.commandLock.release()
         
         if usageString:
-            print usageString
+            print(usageString)
             return True
         else:
             return False
@@ -197,7 +197,7 @@ class DustCli(threading.Thread):
                                                   command['description'])]
         self.commandLock.release()
         
-        print '\n'.join(output)
+        print('\n'.join(output))
     
     def _handleInfo(self,params):
         output  = []
@@ -211,7 +211,7 @@ class DustCli(threading.Thread):
         output += ['']
         output += ['This is thread {0}.'.format(threading.currentThread().getName())]
         
-        print '\n'.join(output)
+        print('\n'.join(output))
     
     def _handleQuit(self,params):
         
@@ -226,9 +226,9 @@ class DustCli(threading.Thread):
         
         upTime = timedelta(seconds=time.time()-self.startTime)
         
-        print 'Running since {0} ({1} ago)'.format(
+        print('Running since {0} ({1} ago)'.format(
                 time.strftime("%m/%d/%Y %H:%M:%S",time.localtime(self.startTime)),
-                upTime)
+                upTime))
     
     
     #======================== helpers =========================================
@@ -238,10 +238,10 @@ class DustCli(threading.Thread):
 if __name__=='__main__':
 
     def quitCallback():
-        print "quitting!"
+        print("quitting!")
 
     def echoCallback(params):
-        print "echo {0}!".format(params)
+        print("echo {0}!".format(params))
         
     cli = DustCli("Standalone Sample App",quitCallback)
     cli.registerCommand('echo',

@@ -108,7 +108,7 @@ class exampleApp(object):
         self.window.mainloop()
     
     def _closeCb(self):
-        print " _closeCb called"
+        print(" _closeCb called")
 
 if __name__ == '__main__':
     exampleApp()

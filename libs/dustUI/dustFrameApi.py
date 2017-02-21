@@ -106,7 +106,7 @@ class dustFrameApi(dustFrame.dustFrame):
                                   " temp_networkType="+str(temp_networkType)+\
                                   " self.deviceType="+str(self.deviceType))
         except NotImplementedError as err:
-           print str(err)
+           print(str(err))
            return
         
         # freeze the form frame
@@ -139,9 +139,9 @@ class exampleApp(object):
         self.window.mainloop()
     
     def _closeCb(self):
-        print " _closeCb called"
+        print(" _closeCb called")
     def _apiFrameCb_apiLoaded(self,param):
-        print " _apiFrameCb_apiLoaded called with param="+str(param)
+        print(" _apiFrameCb_apiLoaded called with param="+str(param))
 
 if __name__ == '__main__':
     import threading

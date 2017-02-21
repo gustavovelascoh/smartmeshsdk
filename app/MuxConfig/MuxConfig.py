@@ -20,8 +20,8 @@ from SmartMeshSDK.utils import SmsdkInstallVerifier
                             ]
                         )
 if not goodToGo:
-    print "Your installation does not allow this application to run:\n"
-    print reason
+    print("Your installation does not allow this application to run:\n")
+    print(reason)
     raw_input("Press any button to exit")
     sys.exit(1)
 
@@ -90,13 +90,13 @@ class ValidatingEntry(ttk.Entry):
     def __callback(self, *dummy):
         value = self.__variable.get()
         newvalue = self.validate(value)
-        print 'Validating:', value
+        print('Validating:', value)
         if newvalue is None:
             #self.__variable.set(self.__value)
-            print 'Bad'
+            print('Bad')
             self.configure(background='red')
         elif newvalue != value:
-            print 'Updating'
+            print('Updating')
             self.__value = newvalue
             self.__variable.set(self.newvalue)
         else:
@@ -410,7 +410,7 @@ class SerialMuxController(object):
         self.ui.update(self.model)
 
     def remove_service(self, sm_config):
-        print 'Removing', sm_config.config_name
+        print('Removing', sm_config.config_name)
         config_dir = self.processmgr.SERIAL_MUX_CONFIG_DIR
         # remove daemon/service
         self.processmgr.remove(sm_config.config_name)
@@ -421,7 +421,7 @@ class SerialMuxController(object):
         self.ui.update(self.model)
 
     def start_service(self, sm_config):
-        print 'Starting', sm_config.config_name
+        print('Starting', sm_config.config_name)
         self.processmgr.start(sm_config.config_name)
         # TODO: handle errors
         sm_config.status = SerialMuxConfigs.SerialMuxConfig.STATUS_RUNNING
@@ -430,7 +430,7 @@ class SerialMuxController(object):
         self.ui.update_row_values(sm_config)
 
     def stop_service(self, sm_config):
-        print 'Stopping', sm_config.config_name
+        print('Stopping', sm_config.config_name)
         self.processmgr.stop(sm_config.config_name)
         sm_config.status = SerialMuxConfigs.SerialMuxConfig.STATUS_STOPPED
         # update UI

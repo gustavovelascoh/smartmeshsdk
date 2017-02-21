@@ -260,10 +260,10 @@ class exampleApp(object):
     #===== GUI action callbacks
     
     def _selectedMoteChangedCB(self,mote):
-        print "selected mote changed to {0}".format(mote)
+        print("selected mote changed to {0}".format(mote))
     
     def _refreshButtonCB(self):
-        print "refresh button pressed, scheduling action in {0}s".format(self.ACTION_DELAY)
+        print("refresh button pressed, scheduling action in {0}s".format(self.ACTION_DELAY))
         t = threading.Timer(self.ACTION_DELAY,self._refresh)
         t.start()
     
@@ -275,20 +275,20 @@ class exampleApp(object):
         output += ["- ldoOnTime:          {0}".format(ldoOnTime)]
         output  = '\n'.join(output)
         
-        print output
+        print(output)
     
     def _getConfigurationCB(self):
-        print "get configuration button pressed, scheduling action in {0}s".format(self.ACTION_DELAY)
+        print("get configuration button pressed, scheduling action in {0}s".format(self.ACTION_DELAY))
         t = threading.Timer(self.ACTION_DELAY,self._displayConfiguration)
         t.start()
     
     def _closeCb(self):
-        print " _closeCb called"
+        print(" _closeCb called")
     
     #===== private
     
     def _refresh(self):
-        print "Refreshing"
+        print("Refreshing")
         self.frame.refresh(
             macs = [
                 [0x11]*8,
@@ -298,7 +298,7 @@ class exampleApp(object):
         )
     
     def _displayConfiguration(self):
-        print "Setting new configuration"
+        print("Setting new configuration")
         self.frame.displayConfiguration(
             reportPeriod        = 10000,
             bridgeSettlingTime  = 20,

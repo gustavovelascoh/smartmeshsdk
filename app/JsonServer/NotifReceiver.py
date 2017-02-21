@@ -14,7 +14,7 @@ def all(path):
     output += ['body:   {0}'.format(pp.pformat(json.loads(request.body.getvalue())))]
     output += ['']
     output  = '\n'.join(output)
-    print output
+    print(output)
     with open(LOGFILE,'a') as f:
         f.write(output)
 

@@ -153,7 +153,7 @@ if __name__ == '__main__':
     mgr.connect({'host': DEFAULT_HOST, 'port': DEFAULT_PORT})
     
     notif_token, notif_port = mgr.subscribe('data events')
-    print 'Subscribe'
+    print('Subscribe')
 
     while True:
         notif = mgr.getNotification(1)

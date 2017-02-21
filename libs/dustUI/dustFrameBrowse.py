@@ -101,10 +101,10 @@ class exampleApp(object):
         self.window.mainloop()
     
     def _closeCb(self):
-        print " _closeCb called"
+        print(" _closeCb called")
         
     def _dustFrameBrowse_selected_cb(self,filenames):
-        print "user selected the following files: {0}".format(filenames)
+        print("user selected the following files: {0}".format(filenames))
     
 if __name__ == '__main__':
     import threading

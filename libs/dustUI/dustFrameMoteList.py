@@ -617,7 +617,7 @@ class exampleApp(object):
         self.window.mainloop()
     
     def _toggleLedCb(self,mac,button):
-        print " _buttonCb for mac {0}".format('-'.join(['%.2x'%c for c in mac]))
+        print(" _buttonCb for mac {0}".format('-'.join(['%.2x'%c for c in mac])))
         
         if button.cget('text')=='ON':
            button.configure(text="OFF")
@@ -625,31 +625,31 @@ class exampleApp(object):
            button.configure(text="ON")
     
     def _rateCbGet(self,mac):
-        print " _rateCbGet for mac {0}".format(
+        print(" _rateCbGet for mac {0}".format(
                                     '-'.join(['%.2x'%c for c in mac])
-                                )
+                                ))
     
     def _rateCbSet(self,mac,val):
-        print " _rateCbSet for mac {0}, value={1}".format(
+        print(" _rateCbSet for mac {0}, value={1}".format(
                                     '-'.join(['%.2x'%c for c in mac]),
                                     val
-                                )
+                                ))
     def _pkgenCbSet(self,mac,val1,val2,val3):
-        print " _pkgenCbSet for mac {0}, value1={1} value2={2} value3={3}".format(
+        print(" _pkgenCbSet for mac {0}, value1={1} value2={2} value3={3}".format(
                                     '-'.join(['%.2x'%c for c in mac]),
                                     val1,
                                     val2,
                                     val3
-                                )
+                                ))
     
     def _keyCbSet(self,mac,value):
-        print " _keyCbSet for mac={0} value={1}".format(
+        print(" _keyCbSet for mac={0} value={1}".format(
             '-'.join(['%.2x'%c for c in mac]),
             value
-        )
+        ))
     
     def _closeCb(self):
-        print " _closeCb called"
+        print(" _closeCb called")
 
 if __name__ == '__main__':
     import threading

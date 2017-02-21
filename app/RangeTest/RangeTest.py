@@ -77,11 +77,11 @@ class RangeTester(threading.Thread):
                 self.connector = IpMoteConnector.IpMoteConnector()
 
                 # connect to the manager
-                print 'connecting to {0}...'.format(self.port),
+                print('connecting to {0}...'.format(self.port), end=' ')
                 self.connector.connect({
                     'port': self.port,
                 })
-                print 'done.'
+                print('done.')
                 
                 # set the current channel to default
                 chanIdx = 0
@@ -144,13 +144,13 @@ class RangeTester(threading.Thread):
                         ]
                     output += ["Total: {0} packets\t({1:.2f}%)".format(sum,float(sum)/float(num))]
                     output  = '\n'.join(output)
-                    print output
+                    print(output)
                     
                     # switch to next channel
                     chanIdx = (chanIdx+1)%4
 
             except Exception as err:
-                print err
+                print(err)
                 try:
                     self.connector.disconnect()
                 except:
@@ -181,7 +181,7 @@ def quit_clicb():
 
     range_tester.close()
 
-    print "bye bye."
+    print("bye bye.")
     time.sleep(0.3)
 
 def connect_clicb(params):
@@ -209,7 +209,7 @@ def main():
     )
     
     # print SmartMesh SDK version
-    print 'SmartMesh SDK {0}'.format('.'.join([str(i) for i in sdk_version.VERSION]))
+    print('SmartMesh SDK {0}'.format('.'.join([str(i) for i in sdk_version.VERSION])))
     cli.start()
 
 if __name__=='__main__':

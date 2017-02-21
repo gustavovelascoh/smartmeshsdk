@@ -170,13 +170,13 @@ class exampleApp(object):
         self.window.mainloop()
     
     def _startPressedCb(self,mac):
-        print " _startPressedCb called mac={0}".format(mac)
+        print(" _startPressedCb called mac={0}".format(mac))
     
     def _stopPressedCb(self):
-        print " _stopPressedCb called"
+        print(" _stopPressedCb called")
     
     def _closeCb(self):
-        print " _closeCb called"
+        print(" _closeCb called")
 
 if __name__ == '__main__':
     import threading

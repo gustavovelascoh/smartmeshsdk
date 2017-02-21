@@ -106,11 +106,11 @@ class exampleApp(object):
         self.window.mainloop()
     
     def _buttonCb(self,enteredText):
-        print 'button pressed. enteredText="{0}"'.format(enteredText)
+        print('button pressed. enteredText="{0}"'.format(enteredText))
         self.frame.disable()
     
     def _closeCb(self):
-        print " _closeCb called"
+        print(" _closeCb called")
 
 if __name__ == '__main__':
     import threading

@@ -477,9 +477,9 @@ class exampleApp(object):
         self.window.mainloop()
     
     def _closeCb(self):
-        print " _closeCb called"
+        print(" _closeCb called")
     def _connectCb(self,param):
-        print " _connectCb called with param="+str(param)
+        print(" _connectCb called with param="+str(param))
 
 if __name__ == '__main__':
     import threading

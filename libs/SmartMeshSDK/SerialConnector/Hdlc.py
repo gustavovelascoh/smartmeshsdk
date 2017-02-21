@@ -148,11 +148,11 @@ class Hdlc(threading.Thread):
                                 except (ConnectionError,CommandError) as err:
                                     output = "@Hdlc: {0}".format(err)
                                     log.error(output)
-                                    print output
+                                    print(output)
                         else:
                             output = "@Hdlc: received hdlc frame too short"
                             log.error(output)
-                            print output
+                            print(output)
                         self._restart()
                     
                     # remember the last byte I received
@@ -169,7 +169,7 @@ class Hdlc(threading.Thread):
             output += ['\ncall stack:\n']
             output += [traceback.format_exc()]
             output  = '\n'.join(output)
-            print output # critical error
+            print(output) # critical error
             log.critical(output)
             raise
         

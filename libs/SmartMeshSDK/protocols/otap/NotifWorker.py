@@ -27,7 +27,7 @@ class NotifWorker(threading.Thread):
                 func(*args, **kargs)
             except Exception, e:
                 # TODO: log this somewhere
-                print "NotifWorker task raised Exception:"
-                print e
+                print("NotifWorker task raised Exception:")
+                print(e)
             self.tasks.task_done()
 

@@ -64,7 +64,7 @@ def logCrash(threadName,err):
     output += [traceback.format_exc()]
     output  = '\n'.join(output)
     
-    print output
+    print(output)
 
 def reversedict(d):
     return dict((v,k) for (k,v) in d.iteritems())
@@ -219,9 +219,9 @@ class JsonServer(object):
         self.hrParser             = HrParser.HrParser()
         
         # print banner
-        print 'JsonServer - SmartMesh SDK {0} - (c) Dust Networks\n'.format(
+        print('JsonServer - SmartMesh SDK {0} - (c) Dust Networks\n'.format(
             '.'.join([str(b) for b in sdk_version.VERSION]),
-        )
+        ))
         
         # start web server
         self.websrv   = bottle.Bottle()
@@ -923,7 +923,7 @@ class JsonServer(object):
         except requests.exceptions.ConnectionError:
             pass
         except Exception as err:
-            print err
+            print(err)
     
     def _stringifyMacAddresses(self,indict):
         '''

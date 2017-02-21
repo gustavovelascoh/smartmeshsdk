@@ -353,13 +353,13 @@ class exampleApp(object):
         self.window.mainloop()
     
     def _nextQuestionCb(self):
-        print 'next question clicked!'
+        print('next question clicked!')
     
     def _presenterChangedCb(self,newPresenter):
-        print 'changed presenter to {0}!'.format(newPresenter)
+        print('changed presenter to {0}!'.format(newPresenter))
     
     def _scanCb(self):
-        print 'scan clicked!'
+        print('scan clicked!')
     
     def _updateData(self):
         
