@@ -274,7 +274,7 @@ def main():
     else:
         print("\n\nScript ended normally")
     
-    raw_input("\nPress enter to close.")
+    input("\nPress enter to close.")
 
 if __name__=="__main__":
     main()

@@ -79,7 +79,7 @@ class DustCli(threading.Thread):
         while self.goOn:
             
             # CLI stops here each time a user needs to call a command
-            params = raw_input('> ')
+            params = input('> ')
             
             # log
             self.log.debug('Following command entered:'+params)

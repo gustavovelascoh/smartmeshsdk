@@ -89,4 +89,4 @@ print(apidef.getResponseFieldOptions(ApiDefinition.ApiDefinition.COMMAND,
                                     ['getNVParameter','powerInfo'],
                                     'powerSource').optionDescs)
 
-raw_input('\nScript ended. Press Enter to exit.')
+input('\nScript ended. Press Enter to exit.')

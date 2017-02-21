@@ -20,7 +20,7 @@ from SmartMeshSDK.utils import SmsdkInstallVerifier
 if not goodToGo:
     print("Your installation does not allow this application to run:\n")
     print(reason)
-    raw_input("Press any button to exit")
+    input("Press any button to exit")
     sys.exit(1)
 
 #============================ imports =========================================

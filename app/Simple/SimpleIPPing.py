@@ -50,7 +50,7 @@ try:
     print('================== Step 1. Connect to the manager')
     
     # ask user for serial port of manager
-    serialPort = raw_input('\nEnter the SmartMesh IP Manager\'s serial port (leave blank for {0}): '.format(DEFAULT_SERIALPORT))
+    serialPort = input('\nEnter the SmartMesh IP Manager\'s serial port (leave blank for {0}): '.format(DEFAULT_SERIALPORT))
     if not serialPort:
         serialPort = DEFAULT_SERIALPORT
     
@@ -94,7 +94,7 @@ try:
     
     goOn = True
     while goOn:
-        moteId = raw_input('\nEnter a moteId to ping of \'q\' to exit (leave blank for {0}): '.format(DEFAULT_MOTEID))
+        moteId = input('\nEnter a moteId to ping of \'q\' to exit (leave blank for {0}): '.format(DEFAULT_MOTEID))
         if moteId=='q':
             goOn = False
             continue
@@ -128,4 +128,4 @@ finally:
         connector.disconnect()
     except:
         pass
-    raw_input("\nPress Enter to close.")
+    input("\nPress Enter to close.")

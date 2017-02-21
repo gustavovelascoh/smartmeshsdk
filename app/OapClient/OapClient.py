@@ -50,7 +50,7 @@ def printExcAndQuit(err):
     output += ["Script ended because of an error. Press Enter to exit."]
     output  = '\n'.join(output)
     
-    raw_input(output)
+    input(output)
     sys.exit(1)
 
 def getOperationalMotes():

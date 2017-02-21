@@ -78,13 +78,13 @@ print(apidef.getResponseFieldOptions(ApiDefinition.ApiDefinition.COMMAND,
 
 print('\n\n================== Step 2. Connecting to a device =================')
 
-connect = raw_input('\nDo you want to connect to a device? [y/n] ')
+connect = input('\nDo you want to connect to a device? [y/n] ')
 
 if connect.strip()!='y':
-    raw_input('\nScript ended. Press Enter to exit.')
+    input('\nScript ended. Press Enter to exit.')
     sys.exit()
 
-serialPort = raw_input('\nEnter the serial port of the IP mote\'s API (e.g. COM30) ')
+serialPort = input('\nEnter the serial port of the IP mote\'s API (e.g. COM30) ')
 
 print('\n=====\nCreating connector')
 connector = IpMoteConnector.IpMoteConnector()
@@ -97,7 +97,7 @@ try:
                      })
 except ConnectionError as err:
     print(err)
-    raw_input('\nScript ended. Press Enter to exit.')
+    input('\nScript ended. Press Enter to exit.')
 print('done.')
 
 
@@ -119,7 +119,7 @@ try:
     connector.disconnect()
 except ConnectionError as err:
     print(err)
-    raw_input('\nScript ended. Press Enter to exit.')
+    input('\nScript ended. Press Enter to exit.')
 print('done.')
 
-raw_input('\nScript ended. Press Enter to exit.')
+input('\nScript ended. Press Enter to exit.')

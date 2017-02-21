@@ -54,7 +54,7 @@ try:
     #===== 
     print("- connect to the manager's serial port")
     
-    serialport     = raw_input("Enter the serial API port of SmartMesh IP Manager (e.g. COM7): ")
+    serialport     = input("Enter the serial API port of SmartMesh IP Manager (e.g. COM7): ")
     mgrconnector.connect({'port': serialport})
     
     #=====
@@ -71,7 +71,7 @@ try:
     )
 
     #===
-    raw_input("Press any key to stop.\n\n")
+    input("Press any key to stop.\n\n")
     
     mgrconnector.disconnect()
     
@@ -81,5 +81,5 @@ except:
     traceback.print_exc()
     print('Script ended with an error.')
     
-raw_input('Press Enter to close.')
+input('Press Enter to close.')
 

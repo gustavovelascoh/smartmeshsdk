@@ -51,7 +51,7 @@ def main():
         exit_code = 1
 
     if wait_for_user:
-        raw_input("\nPress Enter to exit.")
+        input("\nPress Enter to exit.")
         
     sys.exit(exit_code)
 

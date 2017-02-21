@@ -26,17 +26,17 @@ print('Simple Application which interacts with the IP manager - (c) Dust Network
 
 print('\n\n================== Step 1. Connecting to the manager ==============')
 
-connect = raw_input('\nDo you want to connect to a manager over SerialMux? [y/n] ')
+connect = input('\nDo you want to connect to a manager over SerialMux? [y/n] ')
 
 if connect.strip()!='y':
-    raw_input('\nScript ended. Press Enter to exit.')
+    input('\nScript ended. Press Enter to exit.')
     sys.exit()
 
-muxHost = raw_input('\nEnter the SerialMux\'s host (leave blank for '+DEFAULT_MUXHOST+') ')
+muxHost = input('\nEnter the SerialMux\'s host (leave blank for '+DEFAULT_MUXHOST+') ')
 if not muxHost:
     muxHost = DEFAULT_MUXHOST
    
-muxPort = raw_input('\nEnter the SerialMux\'s port (leave blank for '+str(DEFAULT_MUXPORT)+') ')
+muxPort = input('\nEnter the SerialMux\'s port (leave blank for '+str(DEFAULT_MUXPORT)+') ')
 if muxPort:
     muxPort = int(muxPort)
 else:
@@ -54,7 +54,7 @@ try:
                      })
 except ConnectionError as err:
     print(err)
-    raw_input('\nScript ended. Press Enter to exit.')
+    input('\nScript ended. Press Enter to exit.')
     sys.exit(1)
 print('done.')
 
@@ -75,4 +75,4 @@ except (ConnectionError,CommandTimeoutError) as err:
     print(err)
 print('done.')
 
-raw_input('\nScript ended. Press Enter to exit.')
+input('\nScript ended. Press Enter to exit.')

@@ -17,7 +17,7 @@ except ImportError:
     output += 'Could not load the serial module.\n'
     output += 'Please install PySerial from http://pyserial.sourceforge.net/,'
     output += 'then run this script again.\n'
-    raw_input(output)
+    input(output)
     sys.exit()
 
 import logging

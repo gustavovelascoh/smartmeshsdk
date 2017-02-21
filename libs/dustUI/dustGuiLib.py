@@ -235,7 +235,7 @@ class Label(FactoryElem,Tkinter.Label):
 class exampleApp(object):
     
     def __init__(self):
-        raw_input("No sample app. Press enter to close.")
+        input("No sample app. Press enter to close.")
 
 if __name__ == '__main__':
     exampleApp()

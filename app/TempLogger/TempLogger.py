@@ -21,7 +21,7 @@ from SmartMeshSDK.utils import SmsdkInstallVerifier
 if not goodToGo:
     print("Your installation does not allow this application to run:\n")
     print(reason)
-    raw_input("Press any button to exit")
+    input("Press any button to exit")
     sys.exit(1)
 
 #============================ imports =========================================
@@ -84,7 +84,7 @@ oapdispatcher = OAPDispatcher.OAPDispatcher()
 oapdispatcher.register_notif_handler(handle_oap_data)
 
 # ask user for serial port number
-serialport = raw_input('\nSmartMesh IP manager\'s API serial port (leave blank for '+DEFAULT_SERIALPORT+'): ')
+serialport = input('\nSmartMesh IP manager\'s API serial port (leave blank for '+DEFAULT_SERIALPORT+'): ')
 if not serialport.strip():
     serialport = DEFAULT_SERIALPORT
 
@@ -100,7 +100,7 @@ except Exception as err:
         type(err),
         err
     ))
-    raw_input('Aborting. Press Enter to close.')
+    input('Aborting. Press Enter to close.')
     sys.exit(1)
 else:
     print('Connected to {0}.\n'.format(serialport))
