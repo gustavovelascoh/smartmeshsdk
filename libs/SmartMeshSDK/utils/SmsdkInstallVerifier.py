@@ -27,6 +27,8 @@ def _verifyPython():
     # is that enough?
     if major==REQUIRED_PYTHON_MAJOR and minor>=REQUIRED_PYTHON_MINOR:
         goodToGo = True
+    elif major>REQUIRED_PYTHON_MAJOR:
+        goodToGo = True
     else:
         output += ["You need Python %d.%d\n" % (REQUIRED_PYTHON_MAJOR,
                                                 REQUIRED_PYTHON_MINOR)]
