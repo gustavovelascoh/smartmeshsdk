@@ -6,12 +6,12 @@ from collections import namedtuple
 import time
 from threading import Condition, Event
 
-from FileParser import FileParser
-from GenStructs import parse_obj
-from OTAPStructs import *
+from .FileParser import FileParser
+from .GenStructs import parse_obj
+from .OTAPStructs import *
 
-from NotifWorker import NotifWorker
-import ReliableCommander
+from .NotifWorker import NotifWorker
+from . import ReliableCommander
 
 from SmartMeshSDK.IpMgrConnectorMux import IpMgrConnectorMux
 from SmartMeshSDK.IpMgrConnectorMux import IpMgrSubscribe
@@ -73,7 +73,7 @@ class BlockMetadata(object):
 
     def add_all_dependents(self, max_block_num, all_motes):
         self.clear()
-        for n in xrange(max_block_num):
+        for n in range(max_block_num):
             self.blocks[n] = (len(all_motes), all_motes)
     
     def add_dependent(self, block_num, mac):
@@ -92,7 +92,7 @@ class BlockMetadata(object):
         self.blocks.clear()
         
     def blocklist(self):
-        blocks = self.blocks.keys()
+        blocks = list(self.blocks.keys())
         blocks.sort()
         return blocks
 
@@ -443,7 +443,7 @@ class OTAPCommunicator(object):
         if self.auto_commit:
             self.start_commit(self.current_file)
         else:
-            print("Call start_commit('%s') to send OTAP commit" % self.current_file)
+            print(("Call start_commit('%s') to send OTAP commit" % self.current_file))
         # the completion signal is always the last step in the callback
         self.notify_data_complete()
 

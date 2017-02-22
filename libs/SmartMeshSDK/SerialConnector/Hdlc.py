@@ -4,7 +4,7 @@ import sys
 import threading
 import traceback
 
-import Crc
+from . import Crc
 
 
 from SmartMeshSDK.ApiException import ConnectionError, \
@@ -17,7 +17,7 @@ except ImportError:
     output += 'Could not load the serial module.\n'
     output += 'Please install PySerial from http://pyserial.sourceforge.net/,'
     output += 'then run this script again.\n'
-    input(output)
+    eval(input(output))
     sys.exit()
 
 import logging
@@ -242,9 +242,10 @@ class Hdlc(threading.Thread):
         
         # send over serial port
         try:        
-            with self.busySending:
+            with self.busySending:                
+                byteArray = [ord(x) for x in byteArray]
                 numWritten   = self.pyserialHandler.write(byteArray)
-        except IOError, e:
+        except IOError as e:
             raise ConnectionError(str(e))
 
         if numWritten!=len(packetBytes):

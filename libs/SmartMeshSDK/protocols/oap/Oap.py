@@ -9,7 +9,7 @@ log.setLevel(logging.ERROR)
 log.addHandler(NullHandler())
 
 from SmartMeshSDK.IpMgrConnectorSerial import IpMgrConnectorSerial
-import   OAPDispatcher, \
+from . import   OAPDispatcher, \
          OAPClient,     \
          OAPMessage,    \
          OAPNotif

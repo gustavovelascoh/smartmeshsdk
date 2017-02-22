@@ -10,11 +10,11 @@ if __name__ == '__main__':
 
 #============================ imports =========================================
 
-import Tkinter
+import tkinter
 
-import dustGuiLib
-import dustFrame
-from   dustStyle import dustStyle
+from . import dustGuiLib
+from . import dustFrame
+from   .dustStyle import dustStyle
 
 #============================ body ============================================
 
@@ -32,7 +32,7 @@ class dustFrameText(dustFrame.dustFrame):
                                           font=dustStyle.FONT_BODY,
                                           bg=dustStyle.COLOR_BG,
                                           wraplength=600,
-                                          justify=Tkinter.LEFT,
+                                          justify=tkinter.LEFT,
                                           text="")
         self._add(self.toolTipLabel,0,0)
                   
@@ -77,5 +77,5 @@ class exampleApp(object):
 
 if __name__ == '__main__':
     import threading
-    from dustWindow import dustWindow
+    from .dustWindow import dustWindow
     exampleApp()

@@ -42,7 +42,7 @@ class dustStyle(object):
 class exampleApp(object):
     
     def __init__(self):
-        input("No sample app. Press enter to close.")
+        eval(input("No sample app. Press enter to close."))
 
 if __name__ == '__main__':
     exampleApp()
