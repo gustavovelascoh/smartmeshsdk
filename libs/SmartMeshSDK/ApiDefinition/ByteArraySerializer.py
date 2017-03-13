@@ -141,7 +141,6 @@ class ByteArraySerializer(object):
                 # isolate the piece of the byteArray corresponding to this field
                 if fieldDef.length:
                     # this field has an expected length
-                    
                     thisFieldArray = byteArray[index:index+fieldDef.length]
                     index         += fieldDef.length
                     
@@ -154,7 +153,6 @@ class ByteArraySerializer(object):
                             CommandError.TOO_FEW_BYTES,
                             "incomplete field {0}".format(fieldDef.name),
                         )
-                    
                 else:
                     thisFieldArray = byteArray[index:]
                     index          = len(byteArray)
@@ -188,7 +186,8 @@ class ByteArraySerializer(object):
                     
                     elif fieldDef.format==ApiDefinition.FieldFormats.INTS:
                         tempList = [chr(i) for i in thisFieldArray]
-                        tempString = ''.join(tempList)
+                        #tempString = ''.join(tempList)
+                        tempString = bytes(thisFieldArray)
                         if   len(thisFieldArray)==1:
                             (thisFieldValue,) = struct.unpack_from('>b',tempString)
                         elif len(thisFieldArray)==2:
